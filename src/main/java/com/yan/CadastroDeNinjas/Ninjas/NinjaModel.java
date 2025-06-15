@@ -1,6 +1,9 @@
-package com.yan.CadastroDeNinjas;
+package com.yan.CadastroDeNinjas.Ninjas;
 
+import com.yan.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name ="tb_cadastro")
@@ -12,6 +15,7 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+    private List<MissoesModel> missoes;
 
 
     public String getNome() {
