@@ -15,7 +15,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
-    private List<MissoesModel> missoes;
+
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 
 
     public String getNome() {
