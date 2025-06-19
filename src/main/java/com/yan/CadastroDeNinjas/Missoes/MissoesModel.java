@@ -7,12 +7,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-
-@Entity
-@Table(name = "tb_missoes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "tb_missoes")
+
 public class MissoesModel {
 
     @Id
@@ -23,8 +23,6 @@ public class MissoesModel {
 
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjas;
-
-
 
 
 
