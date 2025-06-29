@@ -1,0 +1,2 @@
+ALTER TABLE tb_cadastro
+ADD COLUMN altura VARCHAR(255);
