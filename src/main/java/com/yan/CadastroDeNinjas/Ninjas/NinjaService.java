@@ -12,16 +12,22 @@ public class NinjaService {
     @Autowired
     private NinjaRepository ninjaRepository;
 
-    // LISTAR TODOS OS NINJAS
 
+    // LISTAR TODOS OS NINJAS
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
 
     }
 
+    // LISTAR POR ID
     public NinjaModel listarPorId(Long id){
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
+    }
+
+    // CRIAR UM NOVO NINJA
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
     }
 
 
