@@ -1,15 +1,28 @@
 package com.yan.CadastroDeNinjas.Missoes;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/missoes")
 public class MissoesController {
 
-    //  GET -- MANDAR UMA REQUISIÇÃO PARA MOSTRAR MISSÕES
+    @Autowired
+    private MissoesService missoesService;
+
+    //MOSTRAR TODAS AS MISSOES
     @GetMapping("/listar")
-    public String listarMissao(){
-        return "MISSÕES LISTADA COM SUCESSO";
+    public List<MissoesModel> listarMissao(){
+        return missoesService.mostrarMissoes();
     }
+
+    //MOSTRAR MISSEOS POR ID
+    @GetMapping("/listar/{id}")
+    public MissoesModel listarMissaoPorId(@PathVariable Long id){
+        return missoesService.mostrarMissoesPorId(id);
+    }
+
 
     //  POST -- MANDAR UMA REQUISIÇÃO PARA CRIAR/MANDAR MISSÃO
     @PostMapping("/criar")
