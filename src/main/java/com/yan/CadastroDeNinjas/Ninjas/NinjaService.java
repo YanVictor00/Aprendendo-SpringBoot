@@ -16,7 +16,6 @@ public class NinjaService {
     // LISTAR TODOS OS NINJAS
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
-
     }
 
     // LISTAR POR ID
@@ -34,4 +33,18 @@ public class NinjaService {
     public void deletarNinja(Long id){
         ninjaRepository.deleteById(id);
     }
+
+    //ATUALIZAR NINJA
+
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado){
+
+        if (ninjaRepository.existsById(id)){
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        } else {
+            return null;
+        }
+
+    }
+
 }
