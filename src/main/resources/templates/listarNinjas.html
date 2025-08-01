@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="listarNinjas.css">
+    <title>Tabela de Ninjas</title>
+</head>
+<body>
+
+<h1>LISTA DE NINJAS</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>IMAGEM</th>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>IDADE</th>
+        <th>EMAIL</th>
+        <th>RANK</th>
+        <th>MISSOES</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each ="ninja: ${ninjas}">
+        <td><img th:src="${ninja.imgUrl}" width="100" height="100"></td>
+        <td th:text="${ninja.id}"> </td>
+        <td th:text="${ninja.nome}"> </td>
+        <td th:text="${ninja.email}"> </td>
+        <td th:text="${ninja.rank}"> </td>
+        <td th:text="${ninja.missoes}"> </td>
+
+        <td>
+            <span th:if="${ninja.missoes}"><span th:text="${ninja.missoes.nome}"></span>, Dificuldade: <span th:text="${ninja.missoes.rank}"></span></span>
+            <span th:if="${ninja.missoes == null}">Sem Missões cadastradas para o ninja</span>
+        </td>
+
+        <td>
+            <a>VER DETALHES</a>
+            <a>ALTERAR</a>
+            <a>DELETAR</a>
+        </td>
+
+    </tr>
+    </tbody>
+
+
+</table>
+
+</body>
+</html>

@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_missoes")
-@ToString
+@ToString(exclude = "ninjas")
 
 public class MissoesModel {
 
